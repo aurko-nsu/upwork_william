@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
 <style>
 	body {
     text-align: center;
@@ -14,20 +13,18 @@ input{
 	height: 30px;
 }
 </style>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration Page</title>
+	<title>Login Page</title>
 </head>
 <body>
-<h1>Register Here</h1>
+<h1>Login Here</h1>
 
 <form method="POST" role="form">
-	<input type="text" name="name" placeholder="Enter your name"><br><br>
 	<input type="email" name="email" placeholder="Enter your email"><br><br>
 	<input type="password" name="password" placeholder="Enter your password"><br><br><br>
-	<button type="submit" name="register_here">Register here</button>
+	<button type="submit" name="login_here">Login</button>
 </form>
 </body>
 </html>
