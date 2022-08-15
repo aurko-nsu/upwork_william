@@ -51,9 +51,22 @@ class Welcome extends CI_Controller {
 				{
 					$user_status = $this->DataModel->user_status($user_email);
 
-					if($user_status->is_admin == 1) echo "Admin";
-					else  echo "User";
+					if($user_status->is_admin == 1) redirect('Welcome/admin/'.$user_status->id);
+					else redirect('Welcome/user/'.$user_status->id);
 				}
 		}
+	}
+
+	function user($id)
+	{
+		$data['user'] = $this->DataModel->get_user_detail($id);
+		$this->load->view('user_view_page' , $data);
+	}
+
+	function admin($id)
+	{
+		$data['user'] = $this->DataModel->get_user_detail($id);
+		$data['all_user'] = $this->DataModel->get_all_user_detail();
+		$this->load->view('admin_view_page' , $data);
 	}
 }

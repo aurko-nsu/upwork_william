@@ -24,9 +24,24 @@ class DataModel extends CI_Model
 
 	function user_status($email)
 	{
-		return $this->db->select('is_admin')
+		return $this->db->select('is_admin, id')
 						->from('user')
 						->where('email' , $email)
 						->get()->row();
+	}
+
+	function get_user_detail($id)
+	{
+		return $this->db->select('*')
+						->from('user')
+						->where('id' , $id)
+						->get()->row();
+	}
+
+	function get_all_user_detail()
+	{
+		return $this->db->select('*')
+						->from('user')
+						->get()->result();
 	}
 }
